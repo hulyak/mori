@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -32,9 +33,12 @@ export default function Hero() {
               <Button
                 size="lg"
                 className="rounded-full px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
+                asChild
               >
-                Try for Free
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/signup">
+                  Try for Free
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
                 size="lg"

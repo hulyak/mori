@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Pricing() {
   const plans = [
@@ -89,8 +90,11 @@ export default function Pricing() {
                     : ''
                 }`}
                 variant={plan.popular ? 'default' : 'outline'}
+                asChild
               >
-                {plan.cta}
+                <Link to="/signup">
+                  {plan.cta}
+                </Link>
               </Button>
 
               <div className="space-y-4">

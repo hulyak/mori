@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
@@ -71,8 +72,11 @@ export default function Navbar() {
           <Button
             size="lg"
             className="hidden md:flex rounded-full px-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
+            asChild
           >
-            Try for Free
+            <Link to="/signup">
+              Try for Free
+            </Link>
           </Button>
 
           {/* Mobile Menu Button */}
@@ -106,8 +110,11 @@ export default function Navbar() {
               <Button
                 size="lg"
                 className="rounded-full mt-2 shadow-lg bg-[#A78BFA] hover:bg-[#9678E8]"
+                asChild
               >
-                Try for Free
+                <Link to="/signup">
+                  Try for Free
+                </Link>
               </Button>
             </div>
           </div>
