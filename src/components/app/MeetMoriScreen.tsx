@@ -47,7 +47,7 @@ export default function MeetMoriScreen() {
               <div className="relative">
                 {/* Background glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#A78BFA]/20 via-[#5EEAD4]/20 to-[#F5F1E8]/20 rounded-full blur-3xl scale-150" />
-                <MoriCharacter size="xl" showSparkle className="relative z-10" />
+                <MoriCharacter size="xl" mood="idle" showSparkle className="relative z-10" />
               </div>
               <div className="mt-6 max-w-xs">
                 <SpeechBubble direction="top" className="text-center">

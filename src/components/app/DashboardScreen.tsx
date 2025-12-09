@@ -177,7 +177,17 @@ export default function DashboardScreen() {
     if (timerState === 'break') {
       return "Stand up, stretch, or grab some water. 💧";
     }
+    if (timerState === 'paused') {
+      return "Take your time. I'll be here when you're ready. ⏸️";
+    }
     return "When you're ready, hit start and I'll keep track. ✨";
+  };
+
+  const getMoriMood = () => {
+    if (timerState === 'focus') return 'focus';
+    if (timerState === 'break') return 'break';
+    if (timerState === 'paused') return 'tired';
+    return 'idle';
   };
 
   const WellnessRing = ({ current, goal, color, icon: Icon, label, subtext, helpTitle, helpText, onLog }: { 
@@ -251,7 +261,7 @@ export default function DashboardScreen() {
         </PopoverTrigger>
         <PopoverContent className="w-72 p-4 rounded-2xl">
           <div className="flex items-start gap-3">
-            <MoriCharacter size="sm" />
+            <MoriCharacter size="sm" mood="idle" />
             <div className="flex-1">
               <h4 className="font-semibold text-foreground text-sm">{helpTitle}</h4>
               <p className="text-xs text-muted-foreground mt-1">{helpText}</p>
@@ -307,7 +317,7 @@ export default function DashboardScreen() {
           <div className="mb-6 bg-gradient-to-r from-[#A78BFA]/10 via-[#5EEAD4]/10 to-[#FBBF24]/10 rounded-[2rem] p-6 border border-[#A78BFA]/20 relative overflow-hidden">
             <div className="absolute top-2 right-4 text-2xl">🎉</div>
             <div className="flex items-center gap-6">
-              <MoriCharacter size="md" mood="happy" showSparkle />
+              <MoriCharacter size="md" mood="celebrate" showSparkle />
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-foreground">Session complete!</h3>
                 <p className="text-muted-foreground mt-1">
@@ -555,8 +565,11 @@ export default function DashboardScreen() {
                 <div className="hidden md:flex flex-col items-center gap-3">
                   <MoriCharacter 
                     size="lg" 
-                    mood={timerState === 'focus' ? 'focused' : timerState === 'break' ? 'relaxed' : 'neutral'}
+                    mood={getMoriMood()}
                     showSparkle={timerState === 'idle'}
+                    showLevel={timerState === 'idle'}
+                    level={3}
+                    sessionsToNextLevel={Math.max(0, 5 - todaySessions.length)}
                   />
                   <SpeechBubble className="max-w-[200px] text-center">
                     {getMoriMessage()}

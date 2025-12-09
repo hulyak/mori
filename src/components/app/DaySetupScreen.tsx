@@ -145,7 +145,7 @@ export default function DaySetupScreen() {
 
           {/* Mori with clock */}
           <div className="flex items-center gap-4 mt-8 p-4 bg-gradient-to-r from-[#A78BFA]/5 to-[#5EEAD4]/5 rounded-2xl">
-            <MoriCharacter size="sm" />
+            <MoriCharacter size="sm" mood="idle" />
             <SpeechBubble className="flex-1">
               I'll help you stay on track with gentle reminders! ⏰
             </SpeechBubble>

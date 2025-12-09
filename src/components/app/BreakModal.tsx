@@ -41,7 +41,7 @@ export default function BreakModal({
         <div className="text-center relative z-10">
           {/* Mori */}
           <div className="flex justify-center mb-6">
-            <MoriCharacter size="lg" mood="happy" showSparkle />
+            <MoriCharacter size="lg" mood="celebrate" showSparkle />
           </div>
 
           <h2 className="text-2xl font-bold text-foreground mb-2">

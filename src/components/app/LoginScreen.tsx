@@ -23,7 +23,7 @@ export default function LoginScreen() {
         <div className="bg-white rounded-[2rem] shadow-xl p-8 lg:p-10 border border-border/50 relative">
           {/* Mori in corner */}
           <div className="absolute -top-6 -right-6">
-            <MoriCharacter size="sm" showSparkle />
+            <MoriCharacter size="sm" mood="idle" showSparkle />
           </div>
 
           {/* Header */}
