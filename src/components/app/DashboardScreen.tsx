@@ -114,6 +114,12 @@ export default function DashboardScreen() {
 
   const handleStartFocus = () => {
     setTimerState('focus');
+    // Trigger button press animation
+    const btn = document.querySelector('[data-focus-btn]');
+    if (btn) {
+      btn.classList.add('animate-button-press');
+      setTimeout(() => btn.classList.remove('animate-button-press'), 150);
+    }
   };
 
   const handlePause = () => {
@@ -201,16 +207,23 @@ export default function DashboardScreen() {
     helpText: string;
     onLog: () => void;
   }) => {
+    const [isAnimating, setIsAnimating] = useState(false);
     const percentage = Math.min((current / goal) * 100, 100);
     const circumference = 2 * Math.PI * 20;
     const strokeDashoffset = circumference - (percentage / 100) * circumference;
+
+    const handleLog = () => {
+      setIsAnimating(true);
+      setTimeout(() => setIsAnimating(false), 150);
+      onLog();
+    };
 
     return (
       <Popover>
         <PopoverTrigger asChild>
           <div className="bg-white rounded-2xl p-4 border border-border/30 hover:shadow-md transition-all cursor-pointer group">
             <div className="flex items-center gap-3">
-              <div className="relative w-12 h-12 flex-shrink-0">
+              <div className={`relative w-12 h-12 flex-shrink-0 ${isAnimating ? 'animate-ring-pulse' : ''}`}>
                 <svg className="w-12 h-12 -rotate-90">
                   <circle
                     cx="24"
@@ -231,7 +244,7 @@ export default function DashboardScreen() {
                     strokeLinecap="round"
                     strokeDasharray={circumference}
                     strokeDashoffset={strokeDashoffset}
-                    className="transition-all duration-500"
+                    className="transition-all duration-300 ease-out"
                   />
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -241,7 +254,7 @@ export default function DashboardScreen() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-1">
                   <p className="text-sm font-medium text-foreground">{label}</p>
-                  <HelpCircle className="w-3 h-3 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors" />
+                  <HelpCircle className="w-3 h-3 text-muted-foreground/50 group-hover:text-muted-foreground transition-colors duration-200" />
                 </div>
                 <p className="text-xs text-muted-foreground truncate">{subtext}</p>
                 <p className="text-xs font-medium text-foreground mt-0.5">{current}/{goal} today</p>
@@ -249,9 +262,9 @@ export default function DashboardScreen() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  onLog();
+                  handleLog();
                 }}
-                className="w-8 h-8 rounded-full bg-[#F5F1E8]/50 hover:bg-[#F5F1E8] flex items-center justify-center transition-colors"
+                className="w-8 h-8 rounded-full bg-[#F5F1E8]/50 hover:bg-[#F5F1E8] flex items-center justify-center transition-all duration-150 hover:scale-110 active:scale-95"
                 style={{ color }}
               >
                 <Plus className="w-4 h-4" />
@@ -259,14 +272,14 @@ export default function DashboardScreen() {
             </div>
           </div>
         </PopoverTrigger>
-        <PopoverContent className="w-72 p-4 rounded-2xl">
+        <PopoverContent className="w-72 p-4 rounded-2xl animate-fade-in-up">
           <div className="flex items-start gap-3">
             <MoriCharacter size="sm" mood="idle" />
             <div className="flex-1">
               <h4 className="font-semibold text-foreground text-sm">{helpTitle}</h4>
               <p className="text-xs text-muted-foreground mt-1">{helpText}</p>
               <Button
-                onClick={onLog}
+                onClick={handleLog}
                 size="sm"
                 className="mt-3 rounded-lg text-xs h-8"
                 style={{ backgroundColor: color }}
@@ -314,7 +327,7 @@ export default function DashboardScreen() {
 
         {/* Session Complete Banner */}
         {showSessionComplete && (
-          <div className="mb-6 bg-gradient-to-r from-[#A78BFA]/10 via-[#5EEAD4]/10 to-[#FBBF24]/10 rounded-[2rem] p-6 border border-[#A78BFA]/20 relative overflow-hidden">
+          <div className="mb-6 bg-gradient-to-r from-[#A78BFA]/10 via-[#5EEAD4]/10 to-[#FBBF24]/10 rounded-[2rem] p-6 border border-[#A78BFA]/20 relative overflow-hidden animate-fade-in-up">
             <div className="absolute top-2 right-4 text-2xl">🎉</div>
             <div className="flex items-center gap-6">
               <MoriCharacter size="md" mood="celebrate" showSparkle />
@@ -350,7 +363,7 @@ export default function DashboardScreen() {
         <div className="flex items-center gap-2 mb-6">
           <button
             onClick={() => setActiveTab('today')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               activeTab === 'today'
                 ? 'bg-[#A78BFA] text-white shadow-md'
                 : 'bg-white border border-border/50 text-foreground hover:border-[#A78BFA]/50'
@@ -360,7 +373,7 @@ export default function DashboardScreen() {
           </button>
           <button
             onClick={() => setActiveTab('week')}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
               activeTab === 'week'
                 ? 'bg-[#A78BFA] text-white shadow-md'
                 : 'bg-white border border-border/50 text-foreground hover:border-[#A78BFA]/50'
@@ -439,7 +452,7 @@ export default function DashboardScreen() {
           {/* Main Content - Focus + Tasks */}
           <div className="lg:col-span-2 space-y-6">
             {/* Focus Session Card */}
-            <div className={`bg-white rounded-[2rem] shadow-lg p-8 border transition-all ${
+            <div className={`bg-white rounded-[2rem] shadow-lg p-8 border transition-all duration-200 ease-out ${
               timerState === 'focus' 
                 ? 'border-[#A78BFA]/30 bg-gradient-to-br from-white to-[#A78BFA]/5' 
                 : timerState === 'break'
@@ -501,7 +514,8 @@ export default function DashboardScreen() {
                     {timerState === 'idle' && (
                       <Button
                         onClick={handleStartFocus}
-                        className="h-12 px-8 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all"
+                        data-focus-btn
+                        className="h-12 px-8 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98]"
                       >
                         <Play className="w-5 h-5 mr-2" />
                         Start focus
@@ -639,21 +653,25 @@ export default function DashboardScreen() {
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {tasks.map((task) => (
+                  {tasks.map((task, index) => (
                     <div
                       key={task.id}
-                      className={`flex items-center gap-3 p-4 rounded-xl border transition-all ${
+                      className={`flex items-center gap-3 p-4 rounded-xl border transition-all duration-200 ${
                         task.completed 
                           ? 'bg-[#5EEAD4]/10 border-[#5EEAD4]/30' 
                           : 'bg-[#F5F1E8]/30 border-border/30'
                       }`}
+                      style={{ 
+                        animation: 'fade-in-up 200ms ease-out forwards',
+                        animationDelay: `${index * 50}ms`
+                      }}
                     >
                       <Checkbox
                         checked={task.completed}
                         onCheckedChange={() => toggleTask(task.id)}
-                        className="data-[state=checked]:bg-[#5EEAD4] data-[state=checked]:border-[#5EEAD4]"
+                        className="data-[state=checked]:bg-[#5EEAD4] data-[state=checked]:border-[#5EEAD4] transition-all duration-150"
                       />
-                      <span className={`flex-1 ${task.completed ? 'line-through text-muted-foreground' : 'text-foreground'}`}>
+                      <span className={`flex-1 transition-all duration-200 ${task.completed ? 'line-through text-muted-foreground translate-x-1 opacity-60' : 'text-foreground'}`}>
                         {task.text}
                       </span>
                       <button

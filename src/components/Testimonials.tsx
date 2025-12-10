@@ -39,11 +39,11 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1 border border-border/30"
+              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-1 border border-border/30 group"
             >
               <div className="mb-6">
                 <svg
-                  className="w-10 h-10 text-[#A78BFA]/30"
+                  className="w-10 h-10 text-[#A78BFA]/30 transition-transform duration-200 group-hover:scale-110"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -54,7 +54,7 @@ export default function Testimonials() {
                 "{testimonial.quote}"
               </p>
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.bgColor} flex items-center justify-center text-2xl`}>
+                <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.bgColor} flex items-center justify-center text-2xl transition-transform duration-200 group-hover:scale-110`}>
                   {testimonial.avatar}
                 </div>
                 <div>

@@ -25,7 +25,7 @@ export default function FAQ() {
     },
     {
       question: 'Can I use Mori offline?',
-      answer: 'Yes! Most features work offline. Your companion will sync progress and updates when you\'re back online.',
+      answer: 'Yes! Most features work offline. Mori will sync progress and updates when you\'re back online.',
     },
     {
       question: 'What if I don\'t like it?',
@@ -51,12 +51,12 @@ export default function FAQ() {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-white rounded-[20px] px-6 border border-border/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-shadow data-[state=open]:shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+                className="bg-white rounded-[20px] px-6 border border-border/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all duration-200 data-[state=open]:shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:-translate-y-0.5"
               >
-                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-6 [&[data-state=open]>svg]:text-[#A78BFA]">
+                <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-6 [&[data-state=open]>svg]:text-[#A78BFA] transition-colors duration-200 hover:text-[#A78BFA]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                <AccordionContent className="text-muted-foreground leading-relaxed pb-6 animate-fade-in-up">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

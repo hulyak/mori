@@ -61,7 +61,7 @@ export default function Navbar() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-105"
               >
                 {link.label}
               </button>
@@ -71,7 +71,7 @@ export default function Navbar() {
           {/* CTA Button - Desktop */}
           <Button
             size="lg"
-            className="hidden md:flex rounded-full px-6 shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
+            className="hidden md:flex rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
             asChild
           >
             <Link to="/signup">

@@ -28,7 +28,14 @@ export default function MeetMoriScreen() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF9] flex items-center justify-center p-6">
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-3xl animate-slide-in-right">
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+        </div>
+        
         {/* Main Card */}
         <div className="bg-white rounded-[2rem] shadow-xl p-8 lg:p-10 border border-border/50">
           {/* Header */}
@@ -68,7 +75,7 @@ export default function MeetMoriScreen() {
                     <button
                       key={option.id}
                       onClick={() => setBehavior(option.id)}
-                      className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
+                      className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
                         behavior === option.id
                           ? 'bg-[#A78BFA] text-white shadow-md'
                           : 'bg-white border border-border/50 text-foreground hover:border-[#A78BFA]/50'
@@ -89,7 +96,7 @@ export default function MeetMoriScreen() {
                   {positionOptions.map((option) => (
                     <label
                       key={option.id}
-                      className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all ${
+                      className={`flex items-center gap-3 p-4 rounded-xl cursor-pointer transition-all duration-200 ${
                         position === option.id
                           ? 'bg-[#A78BFA]/10 border-2 border-[#A78BFA]'
                           : 'bg-white border border-border/50 hover:border-[#A78BFA]/30'
@@ -122,7 +129,7 @@ export default function MeetMoriScreen() {
           <div className="flex justify-center mt-10">
             <Button
               onClick={handleStart}
-              className="h-14 px-10 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all"
+              className="h-14 px-10 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium text-lg shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98]"
             >
               Go to my desk
             </Button>

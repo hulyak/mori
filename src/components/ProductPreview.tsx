@@ -18,7 +18,7 @@ export default function ProductPreview() {
           <div className="absolute inset-0 bg-gradient-to-br from-[#A78BFA]/20 via-[#5EEAD4]/20 to-transparent rounded-[3rem] blur-3xl" />
           
           {/* Main Preview Card */}
-          <div className="relative bg-[#F9FAFB] rounded-[2.5rem] shadow-2xl overflow-hidden border border-border/50">
+          <div className="relative bg-[#F9FAFB] rounded-[2.5rem] shadow-2xl overflow-hidden border border-border/50 transition-all duration-300 hover:shadow-[0_25px_80px_rgba(0,0,0,0.15)]">
             {/* Mock Browser Chrome */}
             <div className="bg-white/80 px-6 py-4 flex items-center gap-4 border-b border-border/30">
               <div className="flex gap-2">
@@ -43,9 +43,9 @@ export default function ProductPreview() {
 
             {/* Tabs */}
             <div className="bg-white/50 px-6 py-3 flex gap-6 border-b border-border/20">
-              <button className="text-sm font-semibold text-[#A78BFA] border-b-2 border-[#A78BFA] pb-2">Today</button>
-              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors pb-2">This Week</button>
-              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors pb-2">Achievements</button>
+              <button className="text-sm font-semibold text-[#A78BFA] border-b-2 border-[#A78BFA] pb-2 transition-all duration-200">Today</button>
+              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 pb-2 hover:border-b-2 hover:border-border/50">This Week</button>
+              <button className="text-sm font-medium text-muted-foreground hover:text-foreground transition-all duration-200 pb-2 hover:border-b-2 hover:border-border/50">Achievements</button>
             </div>
 
             {/* Mock App Interface - Today Dashboard */}
@@ -55,18 +55,18 @@ export default function ProductPreview() {
               <div className="bg-white rounded-[24px] p-6 lg:p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
                 <div className="flex flex-col lg:flex-row items-center gap-6">
                   {/* Buddy Character */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden shadow-lg border-2 border-[#A78BFA]/30 relative">
+                  <div className="relative flex-shrink-0 group">
+                    <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden shadow-lg border-2 border-[#A78BFA]/30 relative transition-transform duration-300 group-hover:scale-105 animate-mori-float">
                       <img 
                         src="/puppy.png" 
                         alt="Buddy - Your digital companion" 
                         className="w-full h-full object-cover"
                       />
                       {/* Sparkle decorations */}
-                      <Sparkles className="absolute -top-1 -right-1 w-5 h-5 text-yellow-400" />
+                      <Sparkles className="absolute -top-1 -right-1 w-5 h-5 text-yellow-400 animate-pulse" />
                     </div>
                     {/* Speech Bubble */}
-                    <div className="absolute -right-4 -bottom-2 bg-white rounded-2xl px-4 py-2 shadow-md border border-border/30 max-w-[180px]">
+                    <div className="absolute -right-4 -bottom-2 bg-white rounded-2xl px-4 py-2 shadow-md border border-border/30 max-w-[180px] transition-all duration-200 hover:shadow-lg hover:scale-105">
                       <p className="text-xs font-medium text-foreground">You're in the zone! Keep it up! 🔥</p>
                       <div className="absolute -left-2 bottom-4 w-0 h-0 border-t-8 border-t-transparent border-r-8 border-r-white border-b-8 border-b-transparent" />
                     </div>
@@ -91,10 +91,10 @@ export default function ProductPreview() {
                     
                     {/* Controls */}
                     <div className="flex items-center justify-center lg:justify-start gap-3">
-                      <button className="w-10 h-10 rounded-full bg-[#A78BFA] text-white flex items-center justify-center shadow-md hover:bg-[#9678E8] transition-colors">
+                      <button className="w-10 h-10 rounded-full bg-[#A78BFA] text-white flex items-center justify-center shadow-md hover:bg-[#9678E8] transition-all duration-200 hover:scale-110 active:scale-95">
                         <Pause className="w-5 h-5" />
                       </button>
-                      <button className="w-10 h-10 rounded-full bg-white border border-border text-muted-foreground flex items-center justify-center hover:bg-accent transition-colors">
+                      <button className="w-10 h-10 rounded-full bg-white border border-border text-muted-foreground flex items-center justify-center hover:bg-accent transition-all duration-200 hover:scale-110 active:scale-95">
                         <Square className="w-4 h-4" />
                       </button>
                     </div>
@@ -143,8 +143,8 @@ export default function ProductPreview() {
                   ].map((item, i) => (
                     <div
                       key={i}
-                      className={`flex items-center gap-3 p-3 rounded-xl ${
-                        item.done ? 'bg-[#F5F1E8]/50' : 'bg-[#F9FAFB] border border-border/30'
+                      className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200 hover:scale-[1.02] cursor-pointer ${
+                        item.done ? 'bg-[#F5F1E8]/50' : 'bg-[#F9FAFB] border border-border/30 hover:border-[#A78BFA]/30'
                       }`}
                     >
                       <div
@@ -177,13 +177,13 @@ export default function ProductPreview() {
                 
                 <div className="grid grid-cols-3 gap-4">
                   {/* Water */}
-                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4">
+                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4 transition-all duration-200 hover:bg-[#5EEAD4]/10 hover:scale-105 cursor-pointer group">
                     <div className="relative">
                       <svg className="w-12 h-12 -rotate-90">
                         <circle cx="24" cy="24" r="20" fill="none" stroke="#E5E7EB" strokeWidth="4" />
-                        <circle cx="24" cy="24" r="20" fill="none" stroke="#5EEAD4" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="31.4" strokeLinecap="round" />
+                        <circle cx="24" cy="24" r="20" fill="none" stroke="#5EEAD4" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="31.4" strokeLinecap="round" className="transition-all duration-300" />
                       </svg>
-                      <Droplets className="w-5 h-5 text-[#5EEAD4] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      <Droplets className="w-5 h-5 text-[#5EEAD4] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200 group-hover:scale-110" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-foreground">Water</div>
@@ -192,13 +192,13 @@ export default function ProductPreview() {
                   </div>
                   
                   {/* Stretch */}
-                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4">
+                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4 transition-all duration-200 hover:bg-[#A78BFA]/10 hover:scale-105 cursor-pointer group">
                     <div className="relative">
                       <svg className="w-12 h-12 -rotate-90">
                         <circle cx="24" cy="24" r="20" fill="none" stroke="#E5E7EB" strokeWidth="4" />
-                        <circle cx="24" cy="24" r="20" fill="none" stroke="#A78BFA" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="62.8" strokeLinecap="round" />
+                        <circle cx="24" cy="24" r="20" fill="none" stroke="#A78BFA" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="62.8" strokeLinecap="round" className="transition-all duration-300" />
                       </svg>
-                      <StretchHorizontal className="w-5 h-5 text-[#A78BFA] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      <StretchHorizontal className="w-5 h-5 text-[#A78BFA] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200 group-hover:scale-110" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-foreground">Stretch</div>
@@ -207,13 +207,13 @@ export default function ProductPreview() {
                   </div>
                   
                   {/* Move */}
-                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4">
+                  <div className="flex items-center gap-3 bg-[#F9FAFB] rounded-2xl p-4 transition-all duration-200 hover:bg-[#FFB8A1]/10 hover:scale-105 cursor-pointer group">
                     <div className="relative">
                       <svg className="w-12 h-12 -rotate-90">
                         <circle cx="24" cy="24" r="20" fill="none" stroke="#E5E7EB" strokeWidth="4" />
-                        <circle cx="24" cy="24" r="20" fill="none" stroke="#FFB8A1" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="94.2" strokeLinecap="round" />
+                        <circle cx="24" cy="24" r="20" fill="none" stroke="#FFB8A1" strokeWidth="4" strokeDasharray="125.6" strokeDashoffset="94.2" strokeLinecap="round" className="transition-all duration-300" />
                       </svg>
-                      <Footprints className="w-5 h-5 text-[#FFB8A1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                      <Footprints className="w-5 h-5 text-[#FFB8A1] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-transform duration-200 group-hover:scale-110" />
                     </div>
                     <div>
                       <div className="text-sm font-semibold text-foreground">Move</div>

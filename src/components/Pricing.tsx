@@ -53,7 +53,7 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1 border-2 ${
+              className={`relative bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-1 border-2 ${
                 plan.popular
                   ? 'border-[#A78BFA]'
                   : 'border-border/30'
@@ -84,10 +84,10 @@ export default function Pricing() {
 
               <Button
                 size="lg"
-                className={`w-full rounded-full mb-8 ${
+                className={`w-full rounded-full mb-8 transition-all duration-200 ${
                   plan.popular
-                    ? 'shadow-lg hover:shadow-xl bg-[#A78BFA] hover:bg-[#9678E8]'
-                    : ''
+                    ? 'shadow-lg hover:shadow-xl bg-[#A78BFA] hover:bg-[#9678E8] hover:scale-105 active:scale-95'
+                    : 'hover:scale-105 active:scale-95'
                 }`}
                 variant={plan.popular ? 'default' : 'outline'}
                 asChild
@@ -99,8 +99,8 @@ export default function Pricing() {
 
               <div className="space-y-4">
                 {plan.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                  <div key={i} className="flex items-start gap-3 group/feature">
+                    <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 transition-transform duration-200 group-hover/feature:scale-110 ${
                       plan.popular ? 'bg-[#A78BFA]/20' : 'bg-[#5EEAD4]/20'
                     }`}>
                       <Check className={`w-3 h-3 ${plan.popular ? 'text-[#A78BFA]' : 'text-[#5EEAD4]'}`} />

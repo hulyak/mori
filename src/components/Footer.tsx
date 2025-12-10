@@ -55,7 +55,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-10 h-10 rounded-xl bg-white border border-border/30 flex items-center justify-center text-muted-foreground hover:text-[#A78BFA] hover:border-[#A78BFA]/50 transition-all hover:scale-110 shadow-sm"
+                  className="w-10 h-10 rounded-xl bg-white border border-border/30 flex items-center justify-center text-muted-foreground hover:text-[#A78BFA] hover:border-[#A78BFA]/50 transition-all duration-200 hover:scale-110 hover:-translate-y-1 shadow-sm hover:shadow-md"
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
@@ -71,7 +71,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:translate-x-1"
                   >
                     {link.label}
                   </a>
@@ -87,7 +87,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:translate-x-1"
                   >
                     {link.label}
                   </a>
@@ -103,7 +103,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
+                    className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:translate-x-1"
                   >
                     {link.label}
                   </a>

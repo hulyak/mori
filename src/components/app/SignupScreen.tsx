@@ -18,7 +18,14 @@ export default function SignupScreen() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF9] flex items-center justify-center p-6">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-md animate-fade-in-up">
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+          <div className="w-8 h-1 rounded-full bg-border/30" />
+          <div className="w-8 h-1 rounded-full bg-border/30" />
+        </div>
+        
         {/* Main Card */}
         <div className="bg-white rounded-[2rem] shadow-xl p-8 lg:p-10 border border-border/50 relative">
           {/* Mori in corner */}
@@ -68,7 +75,7 @@ export default function SignupScreen() {
 
             <Button
               type="submit"
-              className="w-full h-12 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all"
+              className="w-full h-12 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98]"
             >
               Continue
               <ArrowRight className="ml-2 h-4 w-4" />

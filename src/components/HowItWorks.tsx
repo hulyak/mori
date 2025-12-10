@@ -10,15 +10,15 @@ export default function HowItWorks() {
     },
     {
       icon: Smile,
-      title: 'Meet Your Companion',
-      description: "Choose your companion's personality and watch them come to life on your desktop.",
+      title: 'Meet Mori',
+      description: "Choose Mori's personality and watch them come to life on your desktop.",
       color: '#5EEAD4',
       showBuddyVariants: true,
     },
     {
       icon: TrendingUp,
       title: 'Work & Grow Together',
-      description: 'Your companion celebrates wins, tracks progress, and keeps you motivated all day.',
+      description: 'Mori celebrates wins, tracks progress, and keeps you motivated all day.',
       color: '#FFB8A1',
     },
   ];
@@ -46,13 +46,13 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1 group"
+              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-1 group"
             >
               <div 
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-200"
                 style={{ backgroundColor: `${step.color}20` }}
               >
-                <step.icon className="w-8 h-8" style={{ color: step.color }} />
+                <step.icon className="w-8 h-8 transition-transform duration-200 group-hover:rotate-6" style={{ color: step.color }} />
               </div>
               
               <div className="space-y-3">

@@ -57,6 +57,147 @@
   }
 }
 
+/* Mori idle floating animation */
+@keyframes mori-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+}
+
+@keyframes mori-celebrate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes task-complete {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0.5;
+    transform: translateX(4px);
+  }
+}
+
+@keyframes checkmark-draw {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes button-press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.98);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-mori-float {
+  animation: mori-float 3.5s ease-in-out infinite;
+}
+
+.animate-mori-celebrate {
+  animation: mori-celebrate 300ms ease-out;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 250ms ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 200ms ease-out forwards;
+}
+
+.animate-slide-out-left {
+  animation: slide-out-left 200ms ease-out forwards;
+}
+
+.animate-ring-pulse {
+  animation: ring-pulse 150ms ease-out;
+}
+
+.animate-task-complete {
+  animation: task-complete 200ms ease-out forwards;
+}
+
+.animate-button-press {
+  animation: button-press 150ms ease-out;
+}
+
+/* Cross-fade transition for Mori images */
+.mori-crossfade {
+  transition: opacity 200ms ease-out;
+}
+
+/* Smooth color transitions */
+.transition-colors-smooth {
+  transition: background-color 200ms ease-out, border-color 200ms ease-out, color 200ms ease-out;
+}
+
 /* Subtle noise texture */
 body::before {
   content: '';

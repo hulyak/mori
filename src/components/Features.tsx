@@ -5,7 +5,7 @@ export default function Features() {
     {
       icon: Timer,
       title: 'Focus Timer',
-      description: 'Pomodoro-style sessions with your companion cheering you on.',
+      description: 'Pomodoro-style sessions with Mori cheering you on.',
       color: '#A78BFA',
     },
     {
@@ -23,7 +23,7 @@ export default function Features() {
     {
       icon: Heart,
       title: 'Mood Check-ins',
-      description: "Your companion asks how you're feeling and adapts accordingly.",
+      description: "Mori asks how you're feeling and adapts accordingly.",
       color: '#F472B6',
     },
     {
@@ -35,7 +35,7 @@ export default function Features() {
     {
       icon: Users,
       title: 'Community',
-      description: "Share your companion's adventures with fellow users.",
+      description: "Share Mori's adventures with fellow users.",
       color: '#34D399',
     },
   ];
@@ -56,13 +56,13 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all hover:-translate-y-1 group border border-border/30"
+              className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-all duration-200 ease-out hover:-translate-y-1 group border border-border/30"
             >
               <div 
-                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform"
+                className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-200"
                 style={{ backgroundColor: `${feature.color}20` }}
               >
-                <feature.icon className="w-7 h-7" style={{ color: feature.color }} />
+                <feature.icon className="w-7 h-7 transition-transform duration-200 group-hover:rotate-6" style={{ color: feature.color }} />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">
                 {feature.title}

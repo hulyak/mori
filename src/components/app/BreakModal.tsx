@@ -24,12 +24,12 @@ export default function BreakModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
       <div 
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-200"
         onClick={onSkip}
       />
       
       {/* Modal */}
-      <div className="relative bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full mx-4 animate-in zoom-in-95 fade-in duration-200 overflow-hidden">
+      <div className="relative bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full mx-4 animate-fade-in-up overflow-hidden">
         {/* Confetti decoration */}
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 text-4xl">
           🎉

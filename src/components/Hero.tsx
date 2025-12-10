@@ -32,7 +32,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
                 size="lg"
-                className="rounded-full px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
+                className="rounded-full px-8 py-6 text-base shadow-lg hover:shadow-xl transition-all duration-150 hover:scale-105 active:scale-95 bg-[#A78BFA] hover:bg-[#9678E8]"
                 asChild
               >
                 <Link to="/signup">
@@ -44,7 +44,7 @@ export default function Hero() {
                 size="lg"
                 variant="outline"
                 onClick={() => scrollToSection('how-it-works')}
-                className="rounded-full px-8 py-6 text-base border-2 hover:bg-accent transition-all"
+                className="rounded-full px-8 py-6 text-base border-2 hover:bg-accent transition-all duration-200 hover:scale-105 active:scale-95"
               >
                 See How It Works
               </Button>
@@ -56,7 +56,7 @@ export default function Hero() {
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-10 h-10 rounded-full bg-gradient-to-br from-[#A78BFA]/20 to-[#5EEAD4]/20 border-2 border-white flex items-center justify-center"
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-[#A78BFA]/20 to-[#5EEAD4]/20 border-2 border-white flex items-center justify-center transition-transform duration-200 hover:scale-110 hover:z-10"
                   >
                     <span className="text-sm">👤</span>
                   </div>
@@ -75,23 +75,23 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-br from-[#A78BFA]/20 via-[#5EEAD4]/20 to-[#F5F1E8]/20 rounded-[3rem] blur-3xl" />
               
               {/* Main Card */}
-              <div className="relative bg-white rounded-[2rem] shadow-2xl p-6 lg:p-8 border border-border/50">
+              <div className="relative bg-white rounded-[2rem] shadow-2xl p-6 lg:p-8 border border-border/50 transition-all duration-300 hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] hover:-translate-y-1">
                 {/* Buddy Character with Speech Bubble */}
                 <div className="flex items-start gap-4 mb-6">
                   {/* Buddy */}
-                  <div className="relative flex-shrink-0">
-                    <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-lg border-2 border-[#A78BFA]/30">
+                  <div className="relative flex-shrink-0 group">
+                    <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full overflow-hidden shadow-lg border-2 border-[#A78BFA]/30 transition-transform duration-300 group-hover:scale-105 animate-mori-float">
                       <img 
                         src="/puppy.png" 
                         alt="Buddy - Your digital companion" 
                         className="w-full h-full object-cover"
                       />
                     </div>
-                    <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400" />
+                    <Sparkles className="absolute -top-1 -right-1 w-4 h-4 text-yellow-400 animate-pulse" />
                   </div>
                   
                   {/* Speech Bubble */}
-                  <div className="flex-1 bg-gradient-to-r from-[#A78BFA]/10 to-[#5EEAD4]/10 rounded-2xl p-4 relative">
+                  <div className="flex-1 bg-gradient-to-r from-[#A78BFA]/10 to-[#5EEAD4]/10 rounded-2xl p-4 relative transition-all duration-200 hover:from-[#A78BFA]/15 hover:to-[#5EEAD4]/15">
                     <p className="text-sm font-medium text-foreground">
                       "You're doing amazing! 🎉"
                     </p>

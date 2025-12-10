@@ -31,7 +31,14 @@ export default function DaySetupScreen() {
 
   return (
     <div className="min-h-screen bg-[#FAFAF9] flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl">
+      <div className="w-full max-w-2xl animate-slide-in-right">
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+          <div className="w-8 h-1 rounded-full bg-[#A78BFA]" />
+          <div className="w-8 h-1 rounded-full bg-border/30" />
+        </div>
+        
         {/* Main Card */}
         <div className="bg-white rounded-[2rem] shadow-xl p-8 lg:p-10 border border-border/50">
           {/* Header */}
@@ -161,7 +168,7 @@ export default function DaySetupScreen() {
             </Link>
             <Button
               onClick={handleNext}
-              className="h-12 px-8 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all"
+              className="h-12 px-8 rounded-xl bg-[#A78BFA] hover:bg-[#9678E8] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-150 active:scale-[0.98]"
             >
               Next
             </Button>
